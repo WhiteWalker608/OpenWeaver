@@ -1,7 +1,7 @@
 name: Test matrix
 on: workflow_dispatch
 jobs:
-  build openweaver:
+  build_openweaver:
     name: Build openWeaver
     strategy:
       matrix:
@@ -35,7 +35,7 @@ jobs:
        gsutil -h "Cache-Control:no-cache, max-age=0" cp build/beacon/beacon gs://${{ secrets.GCS_BUCKET }}/bin/beacon_${{ matrix.os }}_${{ matrix.build_type }}
        gsutil -h "Cache-Control:no-cache, max-age=0" cp build/relay/eth_relay gs:/${{ secrets.GCS_BUCKET }}/bin/eth_relay_${{ matrix.os }}_${{ matrix.build_type }}
        gsutil -h "Cache-Control:no-cache, max-age=0" cp build/integrations/eth/onramp_eth gs://${{ secrets.GCS_BUCKET }}/bin/onramp_eth_${{ matrix.os }}_${{ matrix.build_type }}
-  build abci-geth:
+  build_abci-geth:
     name: Build abci-geth
     strategy:
       matrix:
